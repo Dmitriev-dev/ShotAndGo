@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextureView
+        android:id="@+id/modified_livestream_preview_ttv"
+        android:layout_width="133dp"
+        android:layout_height="268dp"
+        android:layout_marginTop="124dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/invisibleVideoStreamHolder"
+        android:layout_width="165dp"
+        android:layout_height="95dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorBlack">
+
+        <TextureView
+            android:id="@+id/invisibleVideoStream"
+            android:layout_width="160dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:onClick="startButtonClick"
+        android:text="Старт"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/systemMessage"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup2" />
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:onClick="stopButtonClick"
+        android:text="Стоп"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/systemMessage"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/startButton" />
+
+    <Button
+        android:id="@+id/djiConnectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="connectButtonClick"
+        android:text="Подключене"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="241dp"
+        android:layout_height="123dp"
+        android:layout_marginBottom="112dp"
+        app:layout_constraintBottom_toTopOf="@+id/systemMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/routeOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:gravity="center"
+            android:text="Маршрут №1"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/routeTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Маршрут №2"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/routeThree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Маршрут №3"
+            android:textSize="20dp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/redPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:text="Красный игрок:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/djiStatusCheck" />
+
+    <TextView
+        android:id="@+id/countRedHit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/redPlayer"
+        app:layout_constraintTop_toTopOf="@+id/redPlayer" />
+
+    <TextView
+        android:id="@+id/GreenPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Зеленый игрок:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/redPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer" />
+
+    <TextView
+        android:id="@+id/countGreenHit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/countRedHit"
+        app:layout_constraintStart_toEndOf="@+id/GreenPlayer"
+        app:layout_constraintTop_toTopOf="@+id/GreenPlayer" />
+
+    <TextView
+        android:id="@+id/bluePlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Синий игрок:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
+        app:layout_constraintStart_toStartOf="@+id/GreenPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/GreenPlayer"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/countBlueHit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/countGreenHit"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/bluePlayer"
+        app:layout_constraintTop_toTopOf="@+id/bluePlayer" />
+
+    <CheckBox
+        android:id="@+id/djiStatusCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:checked="false"
+        android:text="DJI Статус"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/djiConnectButton"
+        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/systemMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="System Message"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup2"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup2" />
+
+    <CheckBox
+        android:id="@+id/redPlayerCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer"
+        app:layout_constraintTop_toTopOf="@+id/redPlayer" />
+
+    <CheckBox
+        android:id="@+id/greenPlayerCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/GreenPlayer"
+        app:layout_constraintStart_toStartOf="@+id/redPlayerCheck"
+        app:layout_constraintTop_toTopOf="@+id/GreenPlayer" />
+
+    <CheckBox
+        android:id="@+id/bluePlayerCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/bluePlayer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/redPlayerCheck"
+        app:layout_constraintTop_toTopOf="@+id/bluePlayer" />
+
+</android.support.constraint.ConstraintLayout>
